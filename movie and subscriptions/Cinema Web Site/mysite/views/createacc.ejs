@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link href='https://fonts.googleapis.com/css?family=Patrick Hand' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+    <h1>Movies - Subscriptions Web Site</h1>
+     
+    <form class =log-form  action="/createuser" method="POST">
+      <h1>Create An Account</h1>
+      <div class="input-icons">
+      <i class="fa fa-user icon"></i>
+      <input class = "input-field" type="text" , id="usrname" , name="username" placeholder="Username" /> <br /><br />
+        <i class="fa fa-key icon"> </i>
+      <input class = "input-field" type="password" , id="pss" , name="pass" placeholder="Password"/>
+      </div><br/>
+      <input id="sub-create" class = "btn-sub"  type="submit" value="Create" /><br />
+      <% if(err){ %>
+      <h4 style="color: red;" >this username does not exists </h4>
+      <% } %>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/stylesheets/stylemovies.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Patrick Hand"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <%- include ../views/menu %>
+
+    <div class = general-box>
+    <h1>Movies</h1>
+
+    <br />
+
+
+<br />
+<div class = "add-mov-form" >
+<form action="/movies/save/<%=movie._id%>"  method="post">
+  <label for= "mname" >Movie Name:</label>
+    <input type = "text" id ="mname" name = "mname" value="<%=movie.name%>" ><br /> 
+    <label for= "mgener" > Genres:</label>
+    <input type = "text" id ="mgener" name = "gener" value="<%=movie.genres%>"><br /> 
+    <label for= "mimg" >Image Url:</label>
+    <input type = "text" id = "mimg" name = "mimage" value="<%=movie.image%>" ><br /> 
+    <label for= "mdate" >Date:</label>
+    <input type = "text" id = "mdate" name = "mdate" value="<%=new Date(movie.premiered).toLocaleDateString('he-IL')%>" ><br /> 
+    <input type="submit" name = "save" value = "save">
+    <input type="submit" name = "cancel" value = "cancel">
+  </div>
+
+  </form>
+
+
+
+
+    
+
+    
+    
+
+    </div>
+ 
+  
+
+  
+   
+
+  </div>
+  </body>
+<script>
+
+
+
+</script>
+
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/stylesheets/styleUser.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Patrick Hand"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <%- include ../views/menu %>
+    <h1>Users</h1>
+    <br />
+
+    <a class="user-link activ" href="/menu/users">All Users</a>
+    <a class="user-link" href="/users/add/newuser">Add Users</a>
+
+    <!--<div user-all> -->
+      <%users.forEach(el => {%>
+
+      <div class="user-box">
+        Name: <%=el.firstname %> <%=el.lastname%><br />
+        UserName: <%=el.username%> <br />
+      <div class = "session">   Session TimeOut: 
+        <%if(el.username =='Admin') {%>
+          
+          Unlimited   
+          
+        <% } else { %>
+             <%=el.SessionTimeOut%> (Minutes) 
+          <%  }  %>
+      </div>
+          
+        Created Data: <%=el.createdate%><br />
+        Permissions:<%=el.permissions%><br />
+        <input
+          type="button"
+          class="user-btn"
+          value="edit"
+          onclick="editUser('<%=el.id%>')"
+        />
+        <input
+        type="button"
+        class="user-btn"
+        value="delete"
+        onclick="deleteUser('<%=el.id%>')"
+      />
+
+      </div>
+
+      <%}) %>
+    </div>
+  </body>
+<script>
+
+function editUser(idVal)
+{
+
+
+fetch("/users/"+ idVal)
+
+.then((res) => res.text())
+        .then((htmlStr) => {
+          document.open();
+          document.write(htmlStr);
+          document.close();
+        });
+
+}
+
+function deleteUser(idVal){
+
+  let obj = {
+    id: idVal,
+  }
+
+
+  fetch("/users/del", {
+          method: "POST", // or 'PUT'
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(obj),
+        })
+          .then((res) => res.text())
+          .then((htmlStr) => {
+            document.open();
+            document.write(htmlStr);
+            document.close();
+          });
+
+}
+
+
+</script>
+
+</html>

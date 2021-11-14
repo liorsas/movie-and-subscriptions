@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/stylesheets/styleAddMember.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Patrick Hand"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <%- include ../views/menu %>
+
+    <div class = general-box>
+    <h1>Subscriptions</h1>
+
+
+
+    <br />
+
+    <a class= "sub-link "     href="/subscriptions">All Members</a>
+    <a class="sub-link activ" href="subscriptions/addmember">Add Member</a><br />
+
+    <div class  = "add-mem-box" >
+
+    <h2>Add New Member</h2>
+
+
+<form action="/subscriptions/addmember/new" method="post">
+
+  <label class= "add-mem-label" for = "manme" >name</label>
+    <input  type="text" id = "manme" name = "memname" placeholder="enter member name" required  ><br /> <br />
+
+    <label class= "add-mem-label" for = "memail" >email</label>
+    <input type="text" id = "memail" name = "mememail"  placeholder="enter email"  required ><br /><br />
+
+    <label class= "add-mem-label" for = "mcity" >city</label>
+    <input type="text" id = "mcity" name = "memcity"  placeholder="enter member city" required ><br /><br />
+
+    <input class="btn-mem"  type="submit" value="save" name = "save" >
+    <input  class="btn-mem" type="submit" value="cancel" name = "cancel" >
+
+
+</form>
+
+
+
+
+  </div>
+
+  </div>
+  </body>
+<script>
+
+
+</script>
+
+</html>

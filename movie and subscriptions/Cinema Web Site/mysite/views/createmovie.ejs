@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/stylesheets/stylemovies.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Patrick Hand"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <%- include ../views/menu %>
+
+    <div class = general-box>
+    <h1>Movies</h1>
+
+    <br />
+
+    <a class= "movie-link"     href="/movies">All Movies</a>
+    <a class="movie-link activ"  href="movies/addmovie">Add movie</a><br />
+
+<br />
+
+<div class = "add-mov-form" > 
+<form class = "form-box" action="/movies/addmovie/save" method="post">
+  <label for= "mname" >Movie Name:</label>
+    <input type = "text" id ="mname" name = "mname" required ><br /> 
+    <label for= "mgener" > Genres::</label>
+    <input type = "text" id ="mgener" name = "gener" required  ><br /> 
+    <label for= "mimg" >Image Url:</label>
+    <input type = "text" id = "mimg" name = "mimage" ><br /> 
+    <label for= "mdate" >Date:</label>
+    <input type = "date" id = "mdate" name = "mdate" required  ><br /> 
+    <input class = "add-btn" type="submit" name = "save" value = "save">
+    <input class = "add-btn" type="submit" name = "cancel" value = "cancel">
+  
+
+  </form>
+</div>
+
+
+
+
+
+    
+
+    
+    
+
+    
+ 
+  
+
+  
+   
+
+  </div>
+  </body>
+<script>
+
+
+
+</script>
+
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/stylesheets/styleSubscriptions.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Patrick Hand"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <%- include ../views/menu  %>
+
+    <div class = general-box>
+    <h1>Subscriptions</h1>
+
+
+
+    <br />
+
+    <a class= "sub-link activ"     href="/subscriptions">All Members</a>
+    <% if(permit.includes("create-subscritions")) {  %> 
+
+    <a class="sub-link" href="/subscriptions/addmember">Add Member</a>
+    <%}%>
+
+<%members.forEach((mem,index) =>{%>
+<div key= index  class = "member-box"  >
+
+  <h2> <%=mem.name%> </h2>
+  <br/>
+  <div class = "div-text" > email: <%=mem.email%>  </div>
+  <br />
+  <div class = "div-text" > city: <%=mem.city%>  </div><br />
+ 
+
+  <% if(permit.includes("update-subscritions")) {  %> 
+  <input class = "btn-sub" type = "button" value = "edit" onclick="editMember('<%=mem.id%>')">
+  <%}%>
+
+  <% if(permit.includes("delete-subscritions")) {  %> 
+  <input class = "btn-sub" type = "button" value = "delete" onclick="deleteMember('<%=mem.id%>')"  ><br />
+  <%}%>
+  
+  <div class  = "mem-sub-box" >
+    <h2>Movies Watched</h2>
+    <input id= "btn-sel"  type = "button" value="subscribe new movie" onclick= "toggle('<%=index%>')"  ><br />
+<div class = "div-hide" id = "mainsel-<%=index%>" style = "display: none;"   >
+
+<form     action="/subscriptions/subscribe/<%=mem.id%>"  method="post" >
+  Add A New Movie <br />
+  <select class = "sel-op"  name = "selmov"  id = "selmov-<%=index%>" onchange="populateInput('<%=index%>')"  >
+    <%mem.unSeenMov.forEach(mov => {%>
+<option    id = "op" value =   '{"movieid" : "<%=mov._id%>" , "name" :"<%=mov.name%>", "date" :"<%=mov.premiered%>"}' ><%=mov.name%> 
+
+</option>
+
+
+    <%})%>
+   
+    
+    
+  </select>
+  <input  class = "date-inp" id = "movdate-<%=index%>" type = "text"/>
+  <br/>
+  <input type = "submit" value="Subscribe" /> 
+
+  
+</form>
+</div>
+
+ 
+    <ul>
+  <% mem.subscription.forEach( sub => {%>
+
+    <li>
+    <a    href="/movies/movie/<%=sub.movieid%>"><%=sub.moviename%></a>  ,   <%=sub.date%> 
+    </li>
+
+
+
+
+
+  <%}) %>
+</ul>
+
+</div>
+
+</div>
+
+
+<%})%>
+
+
+
+   
+
+  </div>
+  </body>
+<script>
+
+  let memNum =  parseInt("<%=members.length%>")
+  
+  for( let i = 0 ; i<memNum; i++){
+    let mov = document.getElementById("selmov-" + i).value
+
+let obj = mov
+ let obj1 =  JSON.parse(obj)
+
+ 
+
+ let inp = document.getElementById("movdate-" +i )
+
+
+  inp.value = new Date(obj1.date).toLocaleDateString("he-IL").toString()
+
+  }
+  
+
+
+
+
+
+function toggle(id) {
+  
+
+  main = document.getElementById("mainsel-" +id )  
+
+  
+  if(main.style.display=== "none"){
+    main.style.display = "inline-block"
+    return
+  }
+
+  else {
+    main.style.display = "none"
+    return
+  }
+
+
+
+
+
+  }
+
+
+
+
+
+function editMember(memId){
+
+let obj = {
+  id:memId
+}
+
+fetch("/subscriptions/editmember", {
+          method: "POST", // or 'PUT'
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(obj),
+        })
+          .then((res) => res.text())
+          .then((htmlStr) => {
+            document.open();
+            document.write(htmlStr);
+            document.close();
+          });
+
+  
+}
+
+
+function deleteMember(memId){
+
+  let obj = {
+  id:memId
+}
+
+fetch("/subscriptions/deletemember", {
+          method: "POST", // or 'PUT'
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(obj),
+        })
+          .then((res) => res.text())
+          .then((htmlStr) => {
+            document.open();
+            document.write(htmlStr);
+            document.close();
+          });
+
+}
+
+
+function populateInput(id){
+
+ let mov = document.getElementById("selmov-" +id).value
+
+
+ let obj = mov
+ let obj1 =  JSON.parse(obj)
+
+
+ 
+
+ let inp = document.getElementById("movdate-" +id)
+
+
+  inp.value = new Date(obj1.date).toLocaleDateString("he-IL").toString()
+  
+ 
+
+
+}
+
+
+</script>
+
+</html>

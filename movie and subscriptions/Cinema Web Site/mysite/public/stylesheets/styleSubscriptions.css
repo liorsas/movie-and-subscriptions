@@ -1,0 +1,211 @@
+*{margin:0;box-sizing:border-box;}
+
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+ 
+}
+
+a {
+  color: #003a52;
+}
+
+
+
+
+.activsub{
+  background-color: yellow;
+}
+
+.sub-link {
+  background-color:white;
+        border: 1px solid gray;
+        color:black;
+        padding: 8px 24px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 20px;
+        margin: 4px 2px;
+        cursor: pointer;
+
+}
+
+.menu-link {
+  
+  background-color:white;
+        border: 1px solid gray;
+        color:black;
+        padding: 16px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 20px;
+        margin: 4px 2px;
+        cursor: pointer;
+
+
+}
+
+.activ{
+background-color: yellow;
+
+}
+
+
+
+
+
+.member-box{
+  
+  border: 3px solid black;
+  padding: 5px;
+  margin: 10px;
+  box-sizing: border-box;
+  width: 500px;
+  height: 350px;
+  
+}
+
+
+
+
+.mem-sub-box{
+
+  
+  width:350px;
+  height: 150px;
+  padding:10px;
+  margin: 5px;
+  border-style:solid;
+  border-color:black;
+  border-width:3px;
+  padding-left:3px;
+  padding-bottom:10px;
+  box-sizing:border-box;
+  overflow: scroll;
+
+
+  
+    
+ 
+}
+
+.mem-sub-box > a {
+  word-wrap: break-word;
+  
+}
+
+
+.seldiv{
+
+  padding: 5px;
+}
+
+
+.displayText {
+  display: none;
+}
+
+
+/* .off {
+  display: none;
+}
+
+.on {
+  display: inline-block;
+} */
+
+.btn-sub{
+
+  width: 70px;
+  height: 30px;
+  padding: 5px;
+  margin: 5px;
+
+}
+
+.div-text{
+font-size: 20px;
+
+}
+
+.btn-sel{
+padding: 10px;
+font-weight: bold;
+
+
+}
+
+
+
+
+ .selc{
+
+  display: none;
+ }
+
+ .div-hide{
+
+  border: 2px solid red;
+  width: 300px;
+  height: 100px;
+  padding: 5px;
+
+ 
+
+ }
+ #btn-sel{
+
+  margin: 5px;
+
+ }
+ .date-inp{
+   margin: 5px;
+   font-weight: bold;
+ }
+
+ .sel-op{
+  font-weight: bold;
+ }
+
+ #op{
+  font-weight: bold;
+ }
+
+
+
+
+
+
+
+.mov-title{
+  font-weight: bold;
+}
+
+.mov-sub-per{
+  display: grid;
+grid-template-columns: 1fr 1fr;
+padding: 5px;
+margin: 5px;
+}
+
+.mov-sub{
+display: block;
+border: 2px solid black;
+padding: 5px;
+}
+
+.mov-img{
+  border: 2px solid black;
+  padding: 5px;
+
+}
+
+.movie-box img {
+  width: 250px;
+  height: 180px;
+  padding: 5px;
+ }
+
+

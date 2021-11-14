@@ -1,0 +1,72 @@
+
+
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: white;
+
+
+ 
+}
+
+
+
+.log-form {
+  padding: 10px;
+
+}
+
+
+ .menu-link {
+  
+  background-color:white;
+        border: 1px solid gray;
+        color:black;
+        padding: 16px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 20px;
+        margin: 4px 2px;
+        cursor: pointer;
+
+
+}
+
+
+
+.menu-name{
+
+  float: right;
+  color:rgb(73, 4, 4);
+  font-weight: bold;
+ 
+  
+  
+}
+
+.activm{
+
+  background-color: yellow;
+}
+.activs{
+
+  background-color: yellow;
+}
+.activu{
+
+  background-color: yellow;
+}
+
+.log-box{
+  border: 3px solid white;
+  width: 600px;
+  height: 300px;
+ margin-left: 200px;
+ margin-top: 100px;
+ align-items: center;
+ padding: 10px;
+ font-size: 20px;
+
+
+}

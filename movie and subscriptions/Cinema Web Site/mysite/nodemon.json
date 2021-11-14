@@ -1,0 +1,8 @@
+{
+    "ignore": [
+      "test/*",
+      "docs/*"
+    ],
+    "delay": 1000,
+    "ext": "ejs,js,json,css"
+  }

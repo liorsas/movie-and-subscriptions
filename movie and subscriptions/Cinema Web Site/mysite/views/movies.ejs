@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/stylesheets/stylemovies.css" />
+ 
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  
+  <body>
+
+  
+    <%- include ../views/menu  %>
+
+    <div class = general-box>
+    <h1>Movies</h1>
+
+    <br />
+
+    <a class= "movie-link activ"     href="/movies">All Movies</a>
+
+    <% if(permit.includes("create-movies")) {  %> 
+    <a class="movie-link" href="movies/addmovie">Add movie</a>
+    <%}%>
+<input  class ="movie-link"  type= "button" value = "find" onclick="findMovie()" >
+<input  class ="movie-link" id = "fndin" type = "text" name = "mname" >
+
+<% if(movieFlag){ %>
+
+    <%movies.forEach( movie => { %>
+
+    <div class = "movie-box" >
+
+      <div class = "mov-title" >  <%=movie.name%> , <%=movie.premiered%>   </div> <br />
+      <div class = "mov-gener" > Genres:  <%=movie.genres%>    </div>
+      <div class = "mov-sub-per">
+      <div class = "mov-img"  > <img class = "img-box"   src ="<%=movie.image%>" alt ="no picture"></img>   </div>
+      <div class = "mov-sub">
+      <div class = "title"> Subscriptions watched:</div>  <br />
+
+      <%if(movie.movmember == 0 ) {%>
+
+        <h5 style = "color: red;" > No subscriber has watched this movie </h5>
+
+        <% } else { %>
+ 
+      <ul>
+      
+        <%movie.movmember.forEach(mem => {%>
+        </li>
+      <div> <a href = "/subscriptions/member/<%=mem.memberid%>" ><%=mem.membername%> </a>  <%=mem.date %> </div>  
+        </li>
+
+          <%})%>
+      </ul>
+      <%  }  %>
+      </div>
+
+    </div>
+    <% if(permit.includes("update-movies")) {  %> 
+    <input class = "mov-btn"  type = "button" value = "edit" onclick="editMovie('<%=movie.id%>')" >
+    <%}%>
+
+    <% if(permit.includes("delete-movies")) {  %> 
+
+    <input class = "mov-btn"  type = "button" value = "delete" onclick="deleteMovie('<%=movie.id%>')">
+
+    <%}%>
+
+    </div>
+  <%}  )%>
+
+  <% } else{ %>
+    <h1 style="color: red">This movie does not exists</h1>
+    <% } %>
+
+  
+   
+
+  </div>
+  </body>
+<script>
+
+function findMovie(){
+
+  let mname = document.getElementById("fndin").value;
+  let obj = {
+name:mname
+  }
+
+
+
+  fetch("/movies/search",{
+    method: "POST", // or 'PUT'
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(obj),   
+
+  })
+  .then((res) => res.text())
+          .then((htmlStr) => {
+            document.open();
+            document.write(htmlStr);
+            document.close();
+          });
+} 
+
+
+function editMovie(idval){
+let obj = {
+  id:idval
+}
+
+  fetch("/movies/edit", {
+    method: "POST", // or 'PUT'
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(obj),
+
+  } )
+  .then((res) => res.text())
+          .then((htmlStr) => {
+            document.open();
+            document.write(htmlStr);
+            document.close();
+          });
+}
+
+
+
+function deleteMovie(idval){
+
+  let obj = {
+  id:idval
+}
+
+fetch("/movies/delete", {
+    method: "POST", // or 'PUT'
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(obj),
+
+  } )
+  .then((res) => res.text())
+          .then((htmlStr) => {
+            document.open();
+            document.write(htmlStr);
+            document.close();
+          });
+}
+
+</script>
+
+</html>

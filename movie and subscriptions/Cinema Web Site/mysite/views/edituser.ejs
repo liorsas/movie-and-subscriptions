@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/stylesheets/styleEditUser.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Patrick Hand"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <%- include ../views/menu %>
+<div class = users-box ></div>
+
+    <h1>Users</h1>
+
+    <form action="/users/update/<%=user.id%>"   method="post">
+    <h3>Edit User:<%=user.firstname%> <%=user.lastname%>  </h3> 
+    <div class = edit-box >
+First Name: <input id = "fname" type="text" name = "fname"  value = "<%=user.firstname %>" ><br />
+Last name: <input id = "lname" type="text" name = "lname"  value = "<%=user.lastname %>" > <br />
+User Name: <input id = "uname" type="text" name = "uname"  value = "<%=user.username %>" ><br />
+Session TimeOut: <input id = "sess" type="number" name = "sess"  value = "<%=user.SessionTimeOut %>" ><br />
+Created Data: <input id = "udate" type="text" name = "udate"  value = "<%=user.createdate %>" ><br />
+Permittions: <br />
+
+
+<input type="checkbox" id = "prm1" name = "permittions" value = "view-subscritions" onchange="checkSwitch()">View Subscriptions<br />
+<input type="checkbox" id = "prm2" name = "permittions" value = "create-subscritions" onclick="checkSwitch()" >Create Subscriptions<br />
+<input type="checkbox" id = "prm3" name = "permittions" value = "delete-subscritions" onclick="checkSwitch()">Delete Subscriptions<br />
+<input type="checkbox" id = "prm4" name = "permittions" value = "update-subscritions" onclick="checkSwitch()">Update Subscription<br />
+<input type="checkbox" id = "prm5" name = "permittions" value = "view-movies" onclick="checkSwitch()">View Movies<br />
+<input type="checkbox" id = "prm6" name = "permittions" value = "create-movies" onclick="checkSwitch()">Create Movies<br />
+<input type="checkbox" id = "prm7" name = "permittions" value = "delete-movies" onclick="checkSwitch()">Delete Movies<br />
+<input type="checkbox" id = "prm8" name = "permittions" value = "update-movies" onclick="checkSwitch()">Update Movie<br />
+
+
+<input id ="upd-btn" type="submit" value = update>
+
+    </div>
+    </form>
+  </div>
+  </body>
+<script>
+
+
+
+
+function getChecked()
+
+{
+  
+
+  let perm = "<%=user.permissions%>"
+
+  let arr = perm.split(",");
+
+  
+//console.log( typeof arr)
+
+var checkboxes = document.querySelectorAll("input[type=checkbox]");
+//console.log(checkboxes[0])
+  for (let i = 0; i < checkboxes.length; i++) {
+  for(let j  = 0 ; j<arr.length ; j++)
+  {
+    if(arr[j] == checkboxes[i].value)
+    {
+     
+      checkboxes[i].checked = true
+      
+     
+    }
+  }
+
+  }
+
+
+}
+
+getChecked()
+
+function checkSwitch(){
+
+  if((document.getElementById("prm2").checked == true) || (document.getElementById("prm3").checked == true) || (document.getElementById("prm4").checked == true)) 
+   {
+
+    document.getElementById("prm1").checked =true
+  }
+
+  if((document.getElementById("prm6").checked == true) || (document.getElementById("prm7").checked == true) || (document.getElementById("prm8").checked == true)) 
+   {
+
+    document.getElementById("prm5").checked =true
+  }
+  
+  
+    }
+
+   
+    
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</html>

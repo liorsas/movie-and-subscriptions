@@ -1,0 +1,152 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.movie-link > a {
+  color: #1e089c;
+  font-weight: lighter;
+  
+}
+
+.activmovie{
+  background-color: yellow;
+}
+
+a{
+  color:rgb(129, 21, 21)
+}
+
+
+
+.movie-link {
+  background-color:white;
+        border: 1px solid gray;
+        color:black;
+        padding: 8px 24px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 20px;
+        margin: 4px 2px;
+        cursor: pointer;
+
+}
+
+.activ{
+background-color: yellow;
+
+}
+
+.movie-box{
+
+  border: 4px solid black;
+  padding: 5px;
+  margin: 10px;
+  box-sizing: border-box;
+  width: 500px;
+  height: 250px;
+  overflow:auto
+  
+}
+
+.movie-box{
+
+ 
+  height: 250px;
+
+}
+
+.mov-title{
+  font-weight: bold;
+}
+
+.mov-sub-per{
+  display: grid;
+grid-template-columns: 45% 55%;
+padding: 5px;
+margin: 5px;
+}
+
+.mov-sub{
+display: block;
+border: 2px solid black;
+padding: 5px;
+overflow: scroll;
+
+}
+
+.mov-img{
+  border: 2px solid black;
+  padding: 5px;
+
+
+}
+
+.movie-box img {
+  width: 100px;
+  height: 100px;
+ }
+
+ .title{
+
+  font-weight: bold;
+
+ }
+
+ .img-box{
+  border: 2px solid black;
+ }
+
+ .mov-btn{
+
+  padding: 8px 16px;
+  border: solid black;
+  background-color: white;
+
+ } 
+
+
+
+ .add-mov-form{
+
+  border:2px solid black;
+  border-radius: 40px;
+  width: 350px;
+  height: 200px;
+  padding: 50px;
+  margin: 10px;
+  font-size: medium;
+ }
+
+ .form-box{
+align-items: center;
+padding: 20px;
+
+ }
+
+ #mdate{
+   margin-left: 42px;
+   width:170px;
+   margin-top: 5px;
+ }
+
+ #mimg{
+margin-left: 13px;
+margin-top: 5px;
+ }
+
+ #mgener{
+  margin-left: 22px;
+  margin-top: 5px;
+ }
+ #mname{
+  margin-top: 5px;
+ }
+
+ .add-btn{
+
+  padding: 16px 22px;
+  margin: 50px;
+
+ }

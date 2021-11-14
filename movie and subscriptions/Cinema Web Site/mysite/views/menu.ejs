@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link href='https://fonts.googleapis.com/css?family=Patrick Hand' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  </head>
+  <body>
+    <div class="menu-name" ><h2> Currently Connected:  <%=name%> </h2></div>
+
+    <h1>Movies - Subscriptions Web Site</h1>
+
+  
+
+    <div class = "menu">
+      
+      <% if(permit.includes("view-movies")) {  %> 
+      <a class =  "menu-link <%=activm%> " href="/menu/movies">Movies</a>
+
+    <%}%>
+
+    <% if(permit.includes("view-subscritions")) {  %> 
+      <a class = "menu-link <%=activs%>"   href="/menu/subscriptions">Subscriptions</a>
+      <%}%>
+
+      <% if(admin){ %>
+
+        <a class = "menu-link <%=activu%> " href="/menu/users">Users Management</a>
+        <% } %>
+      
+
+      <a class = "menu-link "  href="/">Log Out</a>
+
+
+
+    </div>
+   
+    
+  
+     
+
+    
+  </body>
+</html>

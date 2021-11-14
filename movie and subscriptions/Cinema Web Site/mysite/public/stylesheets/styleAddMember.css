@@ -1,0 +1,120 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.sub-link {
+  background-color:white;
+        border: 1px solid gray;
+        color:black;
+        padding: 8px 24px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 20px;
+        margin: 4px 2px;
+        cursor: pointer;
+
+}
+
+.activ{
+background-color: yellow;
+
+}
+
+
+
+
+
+.member-box{
+  
+  border: 1px solid black;
+  padding: 5px;
+  margin: 10px;
+  box-sizing: border-box;
+  width: 500px;
+  height: 250px;
+  
+}
+
+.member-box{
+
+ 
+  height: 250px;
+
+}
+
+
+.mem-sub-box{
+
+  width:250px;
+  padding-top:5px;
+  border-style:solid;
+  border-color:black;
+  border-width:1px;
+  padding-left:3px;
+  padding-bottom:10px;
+  box-sizing: border-box;
+ 
+}
+
+.add-mem-label{
+
+  padding: 10px;
+  margin: 5px;
+}
+
+.btn-mem{
+  margin: 16px 16px;
+  width: 70px;
+  height: 30px;
+
+}
+
+/* 
+.sel-mov{
+
+  visibility: hidden;
+} */
+ */
+
+/* #unseen {
+  visibility: hidden;
+}
+
+/* #mydiv{
+
+  visibility: hidden;
+} */
+
+
+/* .all{
+  visibility: hidden;
+} */
+
+.subvisible{
+  visibility:visible 
+
+}
+
+.subnotvisible{
+  visibility: hidden;
+}
+
+
+
+
+.add-mem-box{
+
+  border: 1px solid black;
+  width: 400px;
+  height: 400px;
+}
+
+
+
+

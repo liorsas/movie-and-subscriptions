@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+    
+    <h1>Movies - Subscriptions Web Site</h1>
+   
+     <div class = "log-box" >
+  
+      <form class =log-form  action="/menu" method="POST">
+        <h1>Login page</h1>
+        <div class="input-icons">
+        <i class="fa fa-user icon"></i>
+        <input class = "input-field" type="text" , id="usrname" , name="username" placeholder="Username" /> <br /><br />
+          <i class="fa fa-key icon"> </i>
+        <input class = "input-field" type="text" , id="pss" , name="pass" placeholder="Password"/>
+        </div><br/>
+        <input id="sub-menu" class = "btn-sub"  type="submit" value="Login" /><br />
+        <% if(err){ %>
+<h4 style="color: red;" >this username does not exists </h4>
+
+        <% } %>
+
+      </form>
+      New User ? <a href="/createacc">Create Account</a>
+
+    </div>
+
+
+    
+  </body>
+</html>

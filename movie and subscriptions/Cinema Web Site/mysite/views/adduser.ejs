@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/stylesheets/styleEditUser.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Patrick Hand"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <%- include ../views/menu %>
+<div class = users-box ></div>
+
+    <h1>Users</h1>
+    <br />
+
+    <a class="user-link " href="/menu/users">All Users</a>
+    <a class="user-link activ " href="/users/add/newuser">Add Users</a>
+
+    <div class = "usr-box-child">
+
+    <form action="/users/newuser"  method="post">
+    <h3>Add New User  </h3> 
+    <div class = edit-box >
+      <labal for = "firstname" >First Name: </labal>
+ <input class = "inp-user" id = "firstname" type="text" name = "fname" required  ><br />
+ <labal class = "lbl-user" for = "lastname" >Last name:  </labal>
+ <input class = "inp-user" id = "lastname" type="text" name = "lname"  required  > <br />
+<labal  class = "lbl-user" for = "username" >User Name:  </labal>
+ <input class = "inp-user" id = "username" type="text" name = "uname"  required   ><br />
+ <labal  class = "lbl-user" for = "session" >Session TimeOut:  </labal>
+<input class = "inp-user" id = "session" type="number" name = "sess"  required  ><br />
+<labal  class = "lbl-user" for = "role" >role:  </labal>
+<input class = "inp-user" id = "role" type="text" name = "urole" required   ><br />
+Permittions: <br />
+
+
+<input type="checkbox" id = "prm1" name = "permittions" value = "view-subscritions" onchange="checkSwitch()" >View Subscriptions<br />
+<input type="checkbox" id = "prm2" name = "permittions" value = "create-subscritions" onchange="checkSwitch()" >Create Subscriptions<br />
+<input type="checkbox" id = "prm3" name = "permittions" value = "delete-subscritions" onchange="checkSwitch()">Delete Subscriptions<br />
+<input type="checkbox" id = "prm4" name = "permittions" value = "update-subscritions" onchange="checkSwitch()">Update Subscription<br />
+<input type="checkbox" id = "prm5" name = "permittions" value = "view-movies" onchange="checkSwitch()">View Movies<br />
+<input type="checkbox" id = "prm6" name = "permittions" value = "create-movies" onchange="checkSwitch()">Create Movies<br />
+<input type="checkbox" id = "prm7" name = "permittions" value = "delete-movies" onchange="checkSwitch()">Delete Movies<br />
+<input type="checkbox" id = "prm8" name = "permittions" value = "update-movies" onchange="checkSwitch()">Update Movie<br />
+
+
+<input id ="cre-btn" type="submit" value = Create>
+</div>
+
+    </div>
+    </form>
+  </div>
+  </body>
+<script>
+
+
+
+
+function checkSwitch(){
+
+  if((document.getElementById("prm2").checked == true) || (document.getElementById("prm3").checked == true) || (document.getElementById("prm4").checked == true)) 
+   {
+
+    document.getElementById("prm1").checked =true
+  }
+
+  if((document.getElementById("prm6").checked == true) || (document.getElementById("prm7").checked == true) || (document.getElementById("prm8").checked == true)) 
+   {
+
+    document.getElementById("prm5").checked =true
+  }
+  
+  
+    }
+
+
+
+</script>
+
+</html>
